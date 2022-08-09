@@ -54,7 +54,7 @@ int main(int argc, char* argv[]){
 	std::mt19937 e2(rd()); 
 	std::uniform_real_distribution<> dist_uniform(0, 1);
 
-	double theta = 2*M_PI * dist_uniform(e2);
+	// double theta = 2*M_PI * dist_uniform(e2);
 
 	// std::cout << theta << std::endl; 
 	std::cout << get_levy() << std::endl; 
