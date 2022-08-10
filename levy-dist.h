@@ -20,9 +20,11 @@ double get_levy(){
 		return u * (v/w); 
 	};
 
+    //Note: x > mu, changing c and mu will change the shape of the pdf 
+
 	std::random_device rd; 
 	std::mt19937 e2(rd()); 
-	std::uniform_real_distribution<> dist_a(0, 1);
+	std::uniform_real_distribution<> dist_a(1, 1.5);
 	std::uniform_real_distribution<> dist_b(0, 1.5);
 
 	double x = 0.; 
@@ -31,8 +33,7 @@ double get_levy(){
 	do {
 		x = dist_a(e2); 
 		y = dist_b(e2); 
-
-	} while(f(x) > y);
+	} while(f(x) < y);
 
 	return y; 
 

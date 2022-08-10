@@ -12,3 +12,5 @@ run: levy-dist
 clean: 
 	rm levy-dist
 	rm -r levy-dist.dSYM
+	rm levy-test.csv
+	
