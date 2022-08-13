@@ -1,8 +1,9 @@
 #include <random>
 #include <cmath>
+#include <array> 
 
 
-double get_levy(){
+double get_levy(std::array<double, 2>& params, double c=0.5, double mu=0.5, double x_low=1, double x_high=1.5, double y_low=0, double y_high=1.5){
 
 	//Rejection Sampling: 
 
@@ -24,8 +25,8 @@ double get_levy(){
 
 	std::random_device rd; 
 	std::mt19937 e2(rd()); 
-	std::uniform_real_distribution<> dist_a(1, 1.5);
-	std::uniform_real_distribution<> dist_b(0, 1.5);
+	std::uniform_real_distribution<> dist_a(x_low, x_high);
+	std::uniform_real_distribution<> dist_b(y_low, y_high);
 
 	double x = 0.; 
 	double y = 0.; 
@@ -33,7 +34,10 @@ double get_levy(){
 	do {
 		x = dist_a(e2); 
 		y = dist_b(e2); 
-	} while(f(x) < y);
+	} while(f(x, c, mu) < y);
+
+	params[0] = c; 
+	params[1] = mu; 
 
 	return y; 
 
