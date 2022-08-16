@@ -16,7 +16,7 @@ int main(int argc, char* argv[]){
 		//function signature: 
 		//get_levy(double c, double mu, double x_low, double x_high, double y_low, double y_high)
 		
-		res << get_levy(p) << std::endl;  
+		res << get_levy() << std::endl;  
 	}
 
 	params << p[0] << "," << p[1] << std::endl; 
